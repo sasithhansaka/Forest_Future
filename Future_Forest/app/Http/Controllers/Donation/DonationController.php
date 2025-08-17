@@ -37,6 +37,9 @@ class DonationController extends Controller
     public function create()
     {
         //
+
+        $this->donationRepository->create();
+
     }
 
     /**

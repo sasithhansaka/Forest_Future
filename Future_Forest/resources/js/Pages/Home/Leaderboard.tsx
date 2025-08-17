@@ -5,8 +5,8 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
 
     const displayedDonations =
         activeTab === "recent"
-            ? allDonations.slice(0, 20)
-            : topDonations.slice(0, 20);
+            ? allDonations.slice(0, 15)
+            : topDonations.slice(0, 15);
 
 
     return (
@@ -62,11 +62,11 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
 
                             <div className="flex-1 min-w-0">
                                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-1">
-                                    <span className="font-medium text-gray-900 text-sm sm:text-base truncate">
+                                    <span className=" text-gray-900 text-sm sm:text-base font-extrabold truncate">
                                         {donation.display_name}
                                     </span>
                                     <div className="flex items-baseline gap-2">
-                                        <span className="text-white font-semibold text-sm bg-green-600 rounded-2xl sm:text-base whitespace-nowrap px-4 mt-2 py-1">
+                                        <span className="text-white font-semibold text-sm bg-green-600 rounded-2xl sm:text-base whitespace-nowrap px-5 mt-2 py-1">
                                             {donation.trees_planted.toLocaleString()}{" "}
                                             trees
                                         </span>
