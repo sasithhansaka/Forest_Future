@@ -1,10 +1,13 @@
 import TotalTrees from "./TotalTrees";
 
+
 const HomeIndex = ({ allDonations, topDonations, totalTrees }: any) => {
     return (
         <div>
+          
             <TotalTrees count={totalTrees} />
-            <h1 className="text-7xl font-extrabold text-black">{}</h1>
+
+            <p>etfge</p>
 
             {/* <div className="container mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6">Future Forest Donations</h1>
