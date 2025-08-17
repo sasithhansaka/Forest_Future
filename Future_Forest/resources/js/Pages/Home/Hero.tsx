@@ -1,19 +1,16 @@
 const HeroSection = () => {
     return (
         <div className="w-full flex flex-col items-center justify-center text-center py-12 ">
-            {/* Logo */}
             <img 
-                src="logo.png" // place logo.png inside public/images/
+                src="logo.png" 
                 alt="Logo"
                 className="w-42 h-16 mb-6 z-10"
             />
 
-            {/* Title */}
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4 uppercase text-white z-10" >
                 Join the movement!
             </h1>
 
-            {/* Description */}
             <p className="text-lg md:text-2xl max-w-2xl text-white z-20">
                 The team is growing every day and scoring wins for the planet. Plant with us and track our progress!
             </p>

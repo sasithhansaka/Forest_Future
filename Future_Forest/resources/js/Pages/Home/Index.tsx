@@ -1,13 +1,18 @@
 import TotalTrees from "./TotalTrees";
+import Leaderboard from "./Leaderboard";
+
 
 
 const HomeIndex = ({ allDonations, topDonations, totalTrees }: any) => {
     return (
-        <div>
+        <div className="bg-slate-100">
           
             <TotalTrees count={totalTrees} />
+            <Leaderboard allDonations={allDonations}
+            topDonations={topDonations}/>
 
-            <p>etfge</p>
+      
+
 
             {/* <div className="container mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6">Future Forest Donations</h1>
