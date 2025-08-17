@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Donation;
+namespace App\Repositories\All\Donations;
 
 use App\Repositories\Base\EloquentRepositoryInterface;
 

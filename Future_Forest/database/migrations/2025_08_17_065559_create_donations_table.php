@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('team_name')->nullable(); 
             $table->text('message')->nullable(); 
             $table->boolean('anonymous')->default(false);
-            $table->foreignId('tree_category_id')->nullable()->constrained('tree_categories');
+            $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->unsignedInteger('trees_planted'); 
             $table->decimal('amount', 8, 2);
             $table->timestamps();

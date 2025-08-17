@@ -18,28 +18,28 @@ class DonationRepository extends BaseRepository implements DonationInterface
     }
 
     /**
- * Get all donations ordered by a specific column.
- *
- * @param string $column    Column to order by
- * @param string $direction 'asc' or 'desc'
- * @param array  $columns   Columns to select
- *
- * @return \Illuminate\Database\Eloquent\Collection
- */
-public function allOrderBy(string $column, string $direction = 'asc', array $columns = ['*'])
-{
-    return $this->model->orderBy($column, $direction)->get($columns);
-}
+     * Get all donations ordered by a specific column.
+     *
+     * @param string $column    Column to order by
+     * @param string $direction 'asc' or 'desc'
+     * @param array  $columns   Columns to select
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function allOrderBy(string $column, string $direction = 'asc', array $columns = ['*'])
+    {
+        return $this->model->orderBy($column, $direction)->get($columns);
+    }
 
-   /**
- * Get the sum of trees_planted.
- *
- * @return int
- */
-public function sumTreesPlanted(): int
-{
-    return (int) $this->model->sum('trees_planted');
-}
+    /**
+     * Get the sum of trees_planted.
+     *
+     * @return int
+     */
+    public function sumTreesPlanted(): int
+    {
+        return (int) $this->model->sum('trees_planted');
+    }
 
 
 }

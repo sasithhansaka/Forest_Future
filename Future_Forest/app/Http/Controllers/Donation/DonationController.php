@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Donation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Repositories\All\Donations\DonationInterface; 
+use Inertia\Inertia;
+
 
 class DonationController extends Controller
 {
@@ -18,7 +21,8 @@ class DonationController extends Controller
       $donations = $this->donationRepository->all(['display_name', 'trees_planted', 'created_at']);
       dd($donations);
 
-
+     return Inertia::render('Home/Index');    
+      
     }
 
     public function indexDesc(){

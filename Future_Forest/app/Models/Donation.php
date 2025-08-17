@@ -24,6 +24,6 @@ class Donation extends Model
 
     public function category()
     {
-        return $this->belongsTo(TreeCategory::class, 'tree_category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
