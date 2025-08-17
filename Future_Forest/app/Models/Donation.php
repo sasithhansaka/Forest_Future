@@ -14,10 +14,8 @@ class Donation extends Model
         'phone',
         'team_name',
         'message',
-        'periodic_updates',
         'anonymous',
-        'is_gift',
-        'tree_category_id',
+        'category_id',
         'trees_planted',
         'amount',
     ];

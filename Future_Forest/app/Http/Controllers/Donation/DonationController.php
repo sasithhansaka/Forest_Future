@@ -18,16 +18,17 @@ class DonationController extends Controller
     public function index()
     {
         //
-      $donations = $this->donationRepository->all(['display_name', 'trees_planted', 'created_at']);
-      dd($donations);
+    $allDonations = $this->donationRepository->all(['display_name', 'trees_planted', 'created_at']);
+    $topDonations = $this->donationRepository->allOrderBy('trees_planted', 'desc', ['display_name', 'trees_planted', 'created_at']);
+    $totalTrees = $this->donationRepository->sumTreesPlanted();
 
-     return Inertia::render('Home/Index');    
+
+    return Inertia::render('Home/Index', [
+        'allDonations' => $allDonations,
+        'topDonations' => $topDonations,
+        'totalTrees' => $totalTrees,
+    ]); 
       
-    }
-
-    public function indexDesc(){
-        $donations = $this->$donationRepository->allOrderBy('trees_planted','desc',['display_name', 'trees_planted', 'created_at']);
-        dd($donations);
     }
 
     /**
