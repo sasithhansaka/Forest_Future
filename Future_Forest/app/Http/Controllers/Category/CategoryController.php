@@ -19,7 +19,7 @@ class CategoryController extends Controller
         //
       $allCategories=  $this->categoryInterface->all();
 
-      return Inertia::render('Home/DonationForm', [
+      return Inertia::render('Home/Index', [
         'allCategories' => $allCategories
     ]);
 

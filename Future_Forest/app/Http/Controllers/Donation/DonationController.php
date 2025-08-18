@@ -36,15 +36,10 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
 
-        // $this->donationRepository->create();
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
