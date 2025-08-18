@@ -42,21 +42,19 @@ export default function Donations({ donations }: any) {
                                             </span>
                                             {donation.amount && (
                                                 <span className="text-gray-600 text-xs sm:text-sm whitespace-nowrap bg-gray-100 px-3 py-1 rounded-full">
-                                                    {donation.amount.toLocaleString()}{" "}
+                                                   $ {donation.amount.toLocaleString()}{" "}
                                                     raised
                                                 </span>
                                             )}
                                         </div>
                                     </div>
 
-                                    {/* Message */}
                                     {donation.message && (
                                         <p className="text-gray-700 text-sm sm:text-base leading-snug mb-1 line-clamp-2">
                                             {donation.message}
                                         </p>
                                     )}
 
-                                    {/* Date */}
                                     <p className="text-gray-400 text-xs sm:text-sm">
                                         {new Date(
                                             donation.created_at

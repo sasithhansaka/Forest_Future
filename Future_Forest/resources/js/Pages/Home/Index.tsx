@@ -7,8 +7,7 @@ import Footer from "./Footer";
 const HomeIndex = ({ allDonations, topDonations, totalTrees,allCategories }: any) => {
     return (
         <div className="bg-slate-200">
-          
-            <TotalTrees count={totalTrees} />
+           <TotalTrees count={totalTrees} />
             <DonationForm  allCategories={allCategories}/>
             <Leaderboard allDonations={allDonations}
             topDonations={topDonations}/>
