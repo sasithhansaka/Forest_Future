@@ -7,6 +7,9 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\All\Donations\DonationInterface;
 use App\Repositories\All\Donations\DonationRepository;
 
+use App\Repositories\All\Categories\CategoryInterface;
+use App\Repositories\All\Categories\CategoryRepository;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $this->app->bind(DonationInterface::class, DonationRepository::class);
+        $this->app->bind(CategoryInterface::class, CategoryRepository::class);
+
 
     }
 

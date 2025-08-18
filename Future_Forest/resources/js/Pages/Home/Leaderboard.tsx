@@ -8,7 +8,6 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
             ? allDonations.slice(0, 15)
             : topDonations.slice(0, 15);
 
-
     return (
         <div className="w-full flex flex-col items-center justify-center space-y-4 mt-40 ">
             <h1
@@ -23,7 +22,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                     className={`px-4 py-2transition-all duration-200 font-semibold ${
                         activeTab === "recent"
                             ? "bg-gray-600 text-white shadow-md  rounded-l-lg  "
-                            : "bg-gray-300 text-black rounded-l-lg "
+                            : "bg-gray-300 text-[color:#113259] rounded-l-lg "
                     } text-sm sm:text-base`}
                     onClick={() => setActiveTab("recent")}
                 >
@@ -33,7 +32,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                     className={`px-4 py-2  transition-all duration-200 font-semibold ${
                         activeTab === "top"
                             ? "bg-gray-600 text-white rounded-r-lg shadow-md"
-                            : "bg-gray-300 text-black rounded-r-lg "
+                            : "bg-gray-300 text-[color:#113259] rounded-r-lg "
                     } text-sm sm:text-base`}
                     onClick={() => setActiveTab("top")}
                 >
@@ -41,7 +40,6 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                 </button>
             </div>
 
-    
             <div className="w-full max-w-2xl">
                 {displayedDonations
                     .slice(0, 20)
@@ -56,7 +54,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                                         ? "icon.svg"
                                         : "icon2.svg"
                                 }
-                                className="w-16 h-16 rounded-full object-cover bg-gray-100"
+                                className="w-16 h-16 rounded-full object-cover bg-gray-100 mt-3"
                                 alt="User"
                             />
 
@@ -66,7 +64,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                                         {donation.display_name}
                                     </span>
                                     <div className="flex items-baseline gap-2">
-                                        <span className="text-white font-semibold text-sm bg-green-600 rounded-2xl sm:text-base whitespace-nowrap px-5 mt-2 py-1">
+                                        <span className="text-white font-semibold text-sm bg-green-600 rounded-2xl sm:text-base whitespace-nowrap px-5 py-1">
                                             {donation.trees_planted.toLocaleString()}{" "}
                                             trees
                                         </span>
@@ -78,6 +76,10 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                                         )}
                                     </div>
                                 </div>
+
+                                <p className="text-gray-600 text-sm line-clamp-2">
+                                    {donation.message}
+                                </p>
 
                                 <p className="text-gray-400 text-xs">
                                     {new Date(

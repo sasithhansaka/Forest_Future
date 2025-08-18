@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Donation;
+namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\All\Donations\DonationInterface; 
+use App\Repositories\All\Categories\CategoryInterface; 
 use Inertia\Inertia;
 
-
-class DonationController extends Controller
+class CategoryController extends Controller
 {
-   public function __construct(Protected DonationInterface $donationInterface) {}
+    public function __construct(Protected CategoryInterface $categoryInterface) {}
 
     /**
      * Display a listing of the resource.
@@ -18,17 +17,12 @@ class DonationController extends Controller
     public function index()
     {
         //
-    $allDonations = $this->donationInterface->all(['display_name', 'trees_planted', 'created_at','message']);
-    $topDonations = $this->donationInterface->allOrderBy('trees_planted', 'desc', ['display_name', 'trees_planted', 'created_at']);
-    $totalTrees = $this->donationInterface->sumTreesPlanted();
+      $allCategories=  $this->categoryInterface->all();
 
+      return Inertia::render('Home/DonationForm', [
+        'allCategories' => $allCategories
+    ]);
 
-    return Inertia::render('Home/Index', [
-        'allDonations' => $allDonations,
-        'topDonations' => $topDonations,
-        'totalTrees' => $totalTrees,
-    ]); 
-      
     }
 
     /**
@@ -38,7 +32,6 @@ class DonationController extends Controller
     {
         //
 
-        // $this->donationRepository->create();
 
     }
 
