@@ -46,7 +46,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
                     .map((donation: any, index: number) => (
                         <div
                             key={index}
-                            className="flex items-start gap-6 p-4 border-b border-gray-200 bg-white rounded-lg shadow-sm mb-3 last:mb-0"
+                            className="flex items-start gap-6 p-4 border-b border-gray-200 bg-white rounded-lg shadow-lg mb-3 last:mb-0"
                         >
                             <img
                                 src={
