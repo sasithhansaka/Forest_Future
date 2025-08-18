@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Repositories\All\Donations\DonationInterface; 
 use App\Repositories\All\Categories\CategoryInterface;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 
 class DonationController extends Controller
@@ -33,6 +34,23 @@ class DonationController extends Controller
     ]); 
       
     }
+
+   public function userdonations()
+{
+    $email = Auth::user()->email; // ✅ get logged-in user's email
+
+    $donations = $this->donationInterface->getByColumn(
+        ['email' => $email], 
+        ['id','amount','trees_planted','message','created_at'], 
+        ['category'] // relations if you want
+    );
+
+    return Inertia::render('MyProfile/Donations', [
+        'donations' => $donations,
+    ]);
+}
+
+
 
     /**
      * Show the form for creating a new resource.

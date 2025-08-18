@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/Home', [DonationController::class, 'index'])->name('profile.index');
     Route::get('/Home/Form', [CategoryController::class, 'index'])->name('Category.index');
+    Route::get('/Home/donations', [DonationController::class, 'userdonations'])->name('profile.userdonations');
     
 });
 
