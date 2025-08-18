@@ -17,17 +17,17 @@ class CategoryController extends Controller
     public function index()
     {
         //
-      $allCategories=  $this->categoryInterface->all();
+    //   $allCategories=  $this->categoryInterface->all();
 
-      return Inertia::render('Home/Index', [
-        'allCategories' => $allCategories
-    ]);
+    //   dd($allCategories);
+
+    //   return Inertia::render('Home/Index', [
+    //     'allCategories' => $allCategories
+    // ]);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         //

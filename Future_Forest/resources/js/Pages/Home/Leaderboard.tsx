@@ -9,7 +9,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
             : topDonations.slice(0, 15);
 
     return (
-        <div className="w-full flex flex-col items-center justify-center space-y-4 mt-40 ">
+        <div className="w-full flex flex-col items-center justify-center space-y-4 mt-20 ">
             <h1
                 className="text-7xl font-extrabold uppercase text-[color:#113259] "
                 style={{ fontWeight: 900 }}

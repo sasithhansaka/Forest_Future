@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Donation\DonationController;
+use App\Http\Controllers\Donation\CategoryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,7 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/Home', [DonationController::class, 'index'])->name('profile.index');
-
+    Route::get('/Home/Form', [CategoryController::class, 'index'])->name('Category.index');
+    
 });
 
 require __DIR__.'/auth.php';

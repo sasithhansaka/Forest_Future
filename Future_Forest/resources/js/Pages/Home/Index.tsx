@@ -1,8 +1,7 @@
 import TotalTrees from "./TotalTrees";
 import Leaderboard from "./Leaderboard";
 import DonationForm from "./DonationForm";
-
-
+import Footer from "./Footer";
 
 
 const HomeIndex = ({ allDonations, topDonations, totalTrees,allCategories }: any) => {
@@ -13,6 +12,7 @@ const HomeIndex = ({ allDonations, topDonations, totalTrees,allCategories }: any
             <DonationForm  allCategories={allCategories}/>
             <Leaderboard allDonations={allDonations}
             topDonations={topDonations}/>
+            <Footer/>
         </div>
     );
 };
