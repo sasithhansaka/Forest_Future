@@ -5,6 +5,7 @@ import Footer from "./Partials/Footer";
 // import { FaUserCircle } from "react-icons/fa";
 // import { Inertia } from "@inertiajs/react";
 import NavLink from "@/Components/NavLink";
+import { Head } from "@inertiajs/react";
 
 const HomeIndex = ({
     allDonations,
@@ -14,6 +15,8 @@ const HomeIndex = ({
 }: any) => {
     return (
         <div className="bg-slate-200 relative">
+            <Head title="#TeamTrees" />
+
             <TotalTrees count={totalTrees} />
             <DonationForm allCategories={allCategories} />
             <Leaderboard
@@ -28,7 +31,7 @@ const HomeIndex = ({
                     href={route("profile.userdonations")}
                     active={route().current("profile.userdonations")}
                 >
-                Profile
+                    Profile
                 </NavLink>
             </button>
         </div>
