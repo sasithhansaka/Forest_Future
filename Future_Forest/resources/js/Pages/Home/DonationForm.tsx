@@ -4,24 +4,36 @@ import DonationDetailsForm from "./DonationDetailsForm";
 const DonationForm = ({
     allCategories = [],
 }: {
-    allCategories?: { tree_count: number; name: string }[];
+    allCategories?: {
+        tree_count: number;
+        name: string;
+        id: number;
+        price: number;
+    }[];
 }) => {
     const [selectedCategory, setSelectedCategory] = useState<{
         tree_count: number;
         name: string;
+        id: number;
+        price: number;
     } | null>(null);
 
     const [customAmount, setCustomAmount] = useState<string>("");
     const [step, setStep] = useState<number>(1);
 
-    const handleCategoryClick = (category: { tree_count: number; name: string }) => {
+    const handleCategoryClick = (category: {
+        tree_count: number;
+        name: string;
+        id: number;
+        price: number;
+    }) => {
         setSelectedCategory(category);
         setCustomAmount("");
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setCustomAmount(e.target.value);
-        setSelectedCategory(null); // Reset if typing custom amount
+        setSelectedCategory(null);
     };
 
     const handleNext = () => {
@@ -48,7 +60,6 @@ const DonationForm = ({
                         $1 plants a tree
                     </p>
 
-                    {/* Category buttons */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
                         {allCategories.map((category) => (
                             <button
@@ -56,7 +67,8 @@ const DonationForm = ({
                                 type="button"
                                 onClick={() => handleCategoryClick(category)}
                                 className={`${
-                                    selectedCategory?.tree_count === category.tree_count
+                                    selectedCategory?.tree_count ===
+                                    category.tree_count
                                         ? "bg-[color:#113259] text-white border-[color:#113259]"
                                         : "bg-white text-[color:#113259] hover:bg-green-50 border-[color:#113259]"
                                 } font-semibold py-3 px-4 rounded-lg border transition-colors`}
@@ -66,7 +78,6 @@ const DonationForm = ({
                         ))}
                     </div>
 
-                    {/* Custom amount */}
                     <div className="mb-6">
                         <input
                             type="number"
@@ -77,7 +88,6 @@ const DonationForm = ({
                         />
                     </div>
 
-                    {/* Next */}
                     <div className="space-y-3">
                         <button
                             onClick={handleNext}
@@ -94,14 +104,14 @@ const DonationForm = ({
                 <DonationDetailsForm
                     categoryName={selectedCategory?.name || "Custom Donation"}
                     categoryPrice={
-                        selectedCategory?.tree_count || Number(customAmount)
+                        selectedCategory?.price || Number(customAmount)
                     }
+                    categoryId={selectedCategory?.id || Number(customAmount)}
+                    tree_count={selectedCategory?.tree_count || Number(customAmount)}
                 />
             )}
         </div>
     );
 };
-
-
 
 export default DonationForm;
