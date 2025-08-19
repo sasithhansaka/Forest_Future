@@ -28,8 +28,7 @@ const HomeIndex = ({
                     href={route("profile.userdonations")}
                     active={route().current("profile.userdonations")}
                 >
-                    Profile
-                    {/* <FaUserCircle className="text-3xl text-[color:#113259] md:text-4xl lg:text-5xl" /> */}
+                Profile
                 </NavLink>
             </button>
         </div>
