@@ -5,7 +5,7 @@ const Leaderboard = ({ allDonations, topDonations }: any) => {
 
     const displayedDonations =
         activeTab === "recent"
-            ? allDonations.slice(0, 15)
+            ? allDonations.slice(0, 25)
             : topDonations.slice(0, 15);
 
     return (
