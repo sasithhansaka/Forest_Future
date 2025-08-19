@@ -30,19 +30,19 @@ class DonationController extends Controller
         'allDonations' => $allDonations,
         'topDonations' => $topDonations,
         'totalTrees' => $totalTrees,
-        'allCategories' => $allCategories,  // Pass categories as prop
+        'allCategories' => $allCategories,  
     ]); 
       
     }
 
     public function userdonations()
     {
-        $email = Auth::user()->email; // ✅ get logged-in user's email
+        $email = Auth::user()->email; 
 
         $donations = $this->donationInterface->getByColumn(
             ['email' => $email], 
             ['id','amount','trees_planted','message','created_at'], 
-            ['category'] // relations if you want
+            ['category'] 
         );
 
         return Inertia::render('MyProfile/Donations', [
@@ -73,7 +73,6 @@ class DonationController extends Controller
     'amount'         => 'required|numeric|min:1',
     ]);
 
-    // Add email from authenticated user
     $validated['email'] = Auth::user()->email;
 
     // Save donation
