@@ -50,13 +50,13 @@ const DonationForm = ({
     };
 
     return (
-        <div className="bg-white p-6 rounded-lg max-w-md mt-20 mx-auto z-50 shadow-lg">
+        <div className="bg-white  p-6 rounded-lg max-w-md mt-20 mx-auto z-50 shadow-lg">
             {step === 1 && (
                 <>
                     <h2 className="text-2xl font-bold text-[color:#113259] mb-4 text-center">
                         JOIN #TEAMTREES!
                     </h2>
-                    <p className="text-[color:#113259] mb-6 text-center">
+                    <p className="text-[color:#113259] mb-6 text-center font-poppins">
                         $1 plants a tree
                     </p>
 
@@ -107,7 +107,9 @@ const DonationForm = ({
                         selectedCategory?.price || Number(customAmount)
                     }
                     categoryId={selectedCategory?.id || Number(customAmount)}
-                    tree_count={selectedCategory?.tree_count || Number(customAmount)}
+                    tree_count={
+                        selectedCategory?.tree_count || Number(customAmount)
+                    }
                 />
             )}
         </div>

@@ -1,11 +1,10 @@
 import HeroSection from "./Hero";
 import { useEffect, useState } from "react";
 
-
 const TotalTrees = ({ count }: { count: number }) => {
     const [displayCount, setDisplayCount] = useState(-10);
 
-     useEffect(() => {
+    useEffect(() => {
         const animate = () => {
             const start = Math.max(0, count - 111); // start 111 below the actual number
             const target = count;
@@ -29,9 +28,8 @@ const TotalTrees = ({ count }: { count: number }) => {
         return () => clearInterval(refreshInterval);
     }, [count]);
 
-
     return (
-        <div className=" w-full h-screen text-center">
+        <div className="font-poppins w-full h-screen text-center">
             <img
                 src="sky.jpeg"
                 alt="Sky"
@@ -39,9 +37,9 @@ const TotalTrees = ({ count }: { count: number }) => {
             />
 
             <HeroSection />
-          <h1 className="relative z-10 text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-extrabold text-white mt-6">
-            {displayCount.toLocaleString()}
-        </h1>
+            <h1 className="relative z-10 text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-extrabold text-white mt-6">
+                {displayCount.toLocaleString()}
+            </h1>
 
             <img
                 src="header.png"
