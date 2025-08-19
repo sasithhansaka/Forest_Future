@@ -4,27 +4,32 @@ const DonationDetailsForm = ({
     categoryName,
     categoryPrice,
     categoryId,
-    tree_count
-}: {
-    categoryName: string;
-    categoryPrice: number;
-    categoryId:number;
-    tree_count:number;
-}) => {
+    tree_count,
+    }: {
+        categoryName: string;
+        categoryPrice: number;
+        categoryId: number;
+        tree_count: number;
+    }) => {
     const { data, setData, post, processing, errors } = useForm({
         display_name: "",
         team_name: "",
         phone: "",
         message: "",
-        category_id:categoryId,
-        trees_planted:tree_count,
+        category_id: categoryId,
+        trees_planted: tree_count,
         amount: categoryPrice,
     });
 
     function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
 
-        post(route("donations.store"));
+        post(route("profile.store"), {
+            onSuccess: () => {
+                // Refresh the current page
+                window.location.reload();
+            },
+        });
     }
 
     return (
@@ -48,13 +53,17 @@ const DonationDetailsForm = ({
                     <input
                         type="text"
                         value={data.display_name}
-                        onChange={(e) => setData("display_name", e.target.value)}
+                        onChange={(e) =>
+                            setData("display_name", e.target.value)
+                        }
                         placeholder="Display Name"
                         className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         required
                     />
                     {errors.display_name && (
-                        <p className="text-red-500 text-sm mt-1">{errors.display_name}</p>
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.display_name}
+                        </p>
                     )}
                 </div>
 
@@ -70,7 +79,9 @@ const DonationDetailsForm = ({
                         className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                     {errors.team_name && (
-                        <p className="text-red-500 text-sm mt-1">{errors.team_name}</p>
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.team_name}
+                        </p>
                     )}
                 </div>
 
@@ -78,7 +89,8 @@ const DonationDetailsForm = ({
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                         Mobile Phone (optional)
                         <span className="text-xs text-gray-500 block mt-1">
-                            By entering a phone number, you consent to receive text messages
+                            By entering a phone number, you consent to receive
+                            text messages
                         </span>
                     </label>
                     <input
@@ -89,7 +101,9 @@ const DonationDetailsForm = ({
                         className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                     {errors.phone && (
-                        <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.phone}
+                        </p>
                     )}
                 </div>
 
@@ -107,7 +121,9 @@ const DonationDetailsForm = ({
                         className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                     {errors.message && (
-                        <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.message}
+                        </p>
                     )}
                 </div>
 

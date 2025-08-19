@@ -35,20 +35,20 @@ class DonationController extends Controller
       
     }
 
-   public function userdonations()
-{
-    $email = Auth::user()->email; // ✅ get logged-in user's email
+    public function userdonations()
+    {
+        $email = Auth::user()->email; // ✅ get logged-in user's email
 
-    $donations = $this->donationInterface->getByColumn(
-        ['email' => $email], 
-        ['id','amount','trees_planted','message','created_at'], 
-        ['category'] // relations if you want
-    );
+        $donations = $this->donationInterface->getByColumn(
+            ['email' => $email], 
+            ['id','amount','trees_planted','message','created_at'], 
+            ['category'] // relations if you want
+        );
 
-    return Inertia::render('MyProfile/Donations', [
-        'donations' => $donations,
-    ]);
-}
+        return Inertia::render('MyProfile/Donations', [
+            'donations' => $donations,
+        ]);
+    }
 
 
 
@@ -57,13 +57,28 @@ class DonationController extends Controller
      */
     public function create()
     {
-
-
+                
     }
 
     public function store(Request $request)
     {
         //
+    $validated = $request->validate([
+    'display_name'   => 'required|string|max:255',
+    'team_name'      => 'nullable|string|max:255',
+    'phone'          => 'nullable|string|max:20',
+    'message'        => 'nullable|string|max:500',
+    'category_id'    => 'required|integer|exists:categories,id',
+    'trees_planted'  => 'required|integer|min:1',
+    'amount'         => 'required|numeric|min:1',
+    ]);
+
+    // Add email from authenticated user
+    $validated['email'] = Auth::user()->email;
+
+    // Save donation
+    $donation = $this->donationInterface->create($validated);
+
     }
 
     /**
